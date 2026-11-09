@@ -1,9 +1,9 @@
-# mi50-linux-fan-control
+# mi50fan — GPU header fan control (Linux + Windows)
 
 Linux fan controller for AMD Instinct **MI50 / Radeon Pro VII** cards whose cooler
 fan is wired to a **motherboard 4-pin header** (the common Chinese mod-card setup).
 
-Port of the concept from [kingbone2006/MI50-Fan-Control](https://github.com/kingbone2006/MI50-Fan-Control) (Windows) to Linux, using only kernel hwmon — no SuperIO vendor drivers needed.
+Port of the concept from [kingbone2006/MI50-Fan-Control](https://github.com/kingbone2006/MI50-Fan-Control) (Windows) to Linux, using only kernel hwmon — no SuperIO vendor drivers needed. A Windows 10/11 version (`Mi50FanWin`, C#/.NET, LibreHardwareMonitor) lives in [`windows/`](windows/).
 
 ## What it does
 
