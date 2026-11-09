@@ -1,0 +1,11 @@
+[Unit]
+Description=MI50 motherboard-header fan controller
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/mi50fan/mi50fan.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
