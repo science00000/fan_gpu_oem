@@ -15,6 +15,11 @@ single-file exe — no runtime install needed.
    respond to PWM (safe: only revs fans for ~6 s each).
 2. `Mi50FanWin.exe --temp` — print GPU temperature 5 times (sensor check).
 3. `Mi50FanWin.exe` — run the controller (prints `gpu=..C -> ..% fan=..RPM` every 2 s).
+3b. `Mi50FanWin.exe --gui` — small always-on-top monitor: live GPU temp,
+    fan %, RPM and the curve with a marker at the current point. The minimize
+    button hides it to the **system tray** (double-click tray icon to restore;
+    right-click for Open/Exit). On Windows 11 the icon may start hidden in the
+    tray overflow (`^`) — drag it out or enable it in Settings > Tray icons.
 4. `install_task.bat` — install as a scheduled task that starts at logon with
    administrator rights (needs Ring0 driver for SuperIO access).
 
