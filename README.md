@@ -41,6 +41,30 @@ sudo python3 /opt/mi50fan/mi50fan.py
 # managing header pwm1 in /sys/class/hwmon/hwmon0; headers seen: [('1', 1004, 4770)]
 ```
 
+## Viewing status — `fanstatus`
+
+The controller runs as a service, so running `sudo python3 /opt/mi50fan/mi50fan.py`
+by hand prints **`another instance running`** (single-instance lock) — that is
+normal, the service is already doing the job. To just *look* at it:
+
+```bash
+sudo cp fanstatus.sh /usr/local/bin/fanstatus && sudo chmod +x /usr/local/bin/fanstatus
+fanstatus
+# service: active
+# gpu: 48C hotspot 49C 21W
+# hdr1: 0%  1102 RPM      <- GPU blower header
+# hdr2: 0%  1216 RPM
+```
+
+More detail when needed:
+
+```bash
+journalctl -u mi50fan --no-pager | tail -20   # service log
+systemctl status mi50fan                      # alive?
+sudo systemctl stop mi50fan && sudo python3 /opt/mi50fan/mi50fan.py   # manual foreground test
+sudo systemctl start mi50fan                  # hand control back
+```
+
 ## Notes
 
 - The card-side `fan1_input` on these mod cards is a **phantom constant** (~4950) when the fan is on the motherboard header — ignore it; use the header tach.
